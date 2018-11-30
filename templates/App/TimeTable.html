@@ -1,0 +1,35 @@
+{% extends 'App/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+
+<h1 class="h3 text-center bg-success">Search Schedule</h1>
+<form method="POST" action="" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{form.as_p}}
+
+	<button class="btn btn-success" type="submit">Yup!Done</button>
+</form>
+<table class="table">
+  <thead>
+    <th>TimeSlot</th>
+    <th>Batch</th>
+    <th>Subject</th>
+    <th>TeacherName</th>
+  </thead>
+{% if TimeTable %}
+  {% for dd in TimeTable %}
+  <tr>
+    <td>{{ dd.TimeSlot }}</td>
+    <td>{{ dd.Batch }}</td>
+    <td>{{ dd.Subject }}</td>
+    <td>{{ dd.TeacherName }}</td>
+
+  </tr>
+  {%endfor%}
+{% endif %}
+</table>
+
+
+
+
+{% endblock %}

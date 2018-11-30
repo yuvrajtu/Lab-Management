@@ -1,0 +1,20 @@
+{% extends 'App/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Contact</th>
+  </thead>
+{% if LabTeacher %}
+  {% for dd in LabTeacher %}
+  <tr>
+    <td>{{ dd.TeacherName }}</td>
+    <td>{{ dd.Contact }}</td>
+
+  </tr>
+  {%endfor%}
+{% endif %}
+</table>
+
+{% endblock %}

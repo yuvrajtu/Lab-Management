@@ -1,0 +1,12 @@
+{% extends 'App/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+
+<h1 class="h3 text-center bg-success">Update Issue</h1>
+<form method="POST" action="" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{form.as_p}}
+
+	<button class="btn btn-success" type="submit">Yup!Done</button>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'App/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+<table class="table">
+  <thead>
+    <th>Issued On</th>
+    <th>Notice</th>
+  </thead>
+{% if Notice %}
+  {% for dd in Notice %}
+  <tr>
+    <td>{{ dd.IssuedOn }}</td>
+    <td>{{ dd.Text }}</td>
+
+  </tr>
+  {%endfor%}
+{% endif %}
+</table>
+{% if user.is_staff %}
+    <div><a style="margin-top:10px;width:100%"  class="btn btn-warning transparent" href="{% url 'NoticeCreate' %}">Add Notice</a></div>
+{% endif %}
+{% endblock %}

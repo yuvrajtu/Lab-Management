@@ -1,0 +1,22 @@
+{% extends 'App/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+<table class="table">
+  <thead>
+    <th>LabAssinged</th>
+    <th>Name</th>
+    <th>Contact</th>
+  </thead>
+{% if LabAttendent %}
+  {% for dd in LabAttendent %}
+  <tr>
+    <td>{{ dd.LabAssigned }}</td>
+    <td>{{ dd.AttendentName }}</td>
+    <td>{{ dd.Contact }}</td>
+
+  </tr>
+  {%endfor%}
+{% endif %}
+</table>
+
+{% endblock %}

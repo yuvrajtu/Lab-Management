@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- <meta charset="utf-8"> -->
+    <title></title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+</style>
+
+
+  </head>
+<body>
+
+   <nav class="navbar navbar-default">
+     <div class="container">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+           <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="#">Lab Manager</a>
+       </div>
+       <div class="collapse navbar-collapse" id="myNavbar">
+         <ul class="nav navbar-nav navbar-right">
+           <li><a class="navbar-link" href="{% url 'index' %}">&nbsp Home </a></li>
+
+
+           {% csrf_token %}
+           {% if user.is_staff %}
+           <li><a class="navbar-band" href="{% url 'dashboard_Att' %}">&nbsp Attendent Dashboard</a></li>
+           <li><a class="navbar-link" href="{% url 'admin:index' %}">&nbsp Admin </a></li>
+           <!--<li><a class="navbar-band" href="">&nbsp Register </a></li>-->
+           {% endif %}
+
+
+
+           {% if user.is_authenticated %}
+           <li><a class="navbar-band" href="{% url 'Notice' %}">&nbsp Notices</a></li>
+           <li><a class="navbar-link" href="{% url 'Attendent' %}">&nbsp Attendents </a></li>
+           <li><a class="navbar-link" href="{% url 'TimeTable' %}">&nbsp TimeTable </a></li>
+           <li><a class="navbar-link" href="{% url 'Faculty' %}">&nbsp Faculty </a></li>
+           <li><a class="navbar-link" href="{% url 'dashboard'%}">&nbsp dashboard </a></li>
+           <li><a class="navbar-link" href="{% url 'logout' %}">&nbsp logout </a></li>
+
+           {% else %}
+             <li><a class="navbar-link" href="{% url 'login' %}">&nbsp Login </a></li>
+           {% endif %}
+
+
+         </ul>
+       </div>
+     </div>
+   </nav>
+
+
+
+
+
+
+  {% block body_block %}
+
+
+  {% endblock %}
+
+
+  </body>
+  <!-- Footer -->
+  <footer class="container-fluid bg-4 text-center" style=" position:-ms-device-fixed;height:auto;
+    left: 0;
+    bottom: 0;
+    width: 100%;">
+
+    <!-- Copyright -->
+
+    <p>
+      DEVELOPED BY :
+        <a href="https://www.linkedin.com/in/yuvraj-singh-84b3114a">Hawks</a>
+        &nbsp;&nbsp;
+
+
+      © 2018 Copyright:
+      <a href=""> TIET</a>
+      &nbsp;&nbsp;
+
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+</html>

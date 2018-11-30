@@ -1,0 +1,34 @@
+{% extends 'App/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+
+
+
+
+
+<div class="login-page">
+  <div ="container-fluid col-xl-5" style="border-style:inset;  border-width:2px;padding:7px; ">
+<h3 class="h3 text-center bg-success" align="center">LOGIN</h3>
+  <form action="{% url 'App:login' %}" method="post" >
+    {% csrf_token %}
+      <div class="form-group">
+        <label for="Username">username</label>
+        <input type="text" class="form-control"  placeholder="Enter user name" name="username">
+      </div>
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+
+</div>
+
+</div>
+
+
+  </form>
+
+
+{% endblock %}}

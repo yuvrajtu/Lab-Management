@@ -1,0 +1,55 @@
+{% extends 'App/base.html' %}
+{% block body_block %}
+<div class="container-fluid">
+<div class="jumbotron">
+
+  <h1>Welcome to attendents  Dashboard</h1>
+<div class="row">
+  <div class="col-4">
+
+
+  </div>
+  <div class="col-8">
+    <h3 align="center" text-align="center">Current Complains</h3>
+    <table class="table table-striped table-bordered table-hover table-condensed">
+      <thead>
+        <th>Issued by</th>
+        <th>LabName</th>#}
+        <th>Issue</th>
+        <th>Status</th>
+
+      </thead>
+{% if dashdata %}
+      {% for dd in dashdata %}
+      <tr>
+        <td>{{ dd.author }}</td>
+        <td>{{ dd.LabName }}</td>
+        <td>{{ dd.Issue }}</td>
+        <td>{{ dd.ResolvedValue }}</td>
+
+
+        <td><form action="{% url 'StatusUpdate' dd.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="dd_id" value="{{dd.id}}"/>
+            <button type="submit" class="btn btn-danger" name="button" value="update">Update</button>
+            </form>
+        </td>
+
+      </tr>
+      {%endfor%}
+{% endif %}
+    </table>
+
+
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+</div>
+{% endblock %}
